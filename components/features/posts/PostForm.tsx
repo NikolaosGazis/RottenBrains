@@ -70,7 +70,7 @@ const PostForm = ({ post, action, from_media }: PostFormProps) => {
       if (media) {
         setFormValues((prevValues) => ({
           ...prevValues,
-          review_user: `Λοιπον είδα το ${media.title || media.name},`,
+          review_user: `Λοιπόν είδα το ${media.title || media.name},`,
         }));
       }
     }
@@ -80,22 +80,22 @@ const PostForm = ({ post, action, from_media }: PostFormProps) => {
   const updateReviewText = (rating: number) => {
     let reviewText = `Λοιπον είδα το ${media?.title || media?.name}, `;
     if (rating >= 8) {
-      reviewText += ` καλή`;
+      reviewText += `καλή`;
     } else if (rating >= 4) {
-      reviewText += ` μέτρια`;
+      reviewText += `μέτρια`;
     } else {
-      reviewText += ` κακή`;
+      reviewText += `κακή`;
     }
     if (media?.media_type === "movie") {
       reviewText += ` ταινία`;
     } else if (from_media) {
       if (from_media.media_type === "movie") {
-        reviewText += ` ταινία`;
+        reviewText += ` ταινία.`;
       } else {
-        reviewText += ` σειρα`;
+        reviewText += ` σειρά.`;
       }
     } else {
-      reviewText += ` σειρα`;
+      reviewText += ` σειρά.`;
     }
     setFormValues((prevValues) => ({
       ...prevValues,
@@ -103,7 +103,7 @@ const PostForm = ({ post, action, from_media }: PostFormProps) => {
     }));
   };
 
-  // media?.media_type === "movie" ? "ταινία" : "σειρα";
+  // media?.media_type === "movie" ? "ταινία" : "σειρά";
 
   // Use useEffect to update review_user based on the rating
   useEffect(() => {
